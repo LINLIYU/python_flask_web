@@ -10,7 +10,7 @@
 * 由18级林立宇和我共同部署网页，我通过掌握到的python知识，比如**条件判断、推导式、循环遍历等，实现了dash可视化界面，并获取点击的城市分析该城市的数据，实现了具有交互功能的html页面，比如下拉框和数据表格交互，下拉框和条形图交互，编写了网页基本的css样式、html等**
 
 * [Pythonanywhere URL](http://linlyu01.pythonanywhere.com)：linlyu.pythonanywhere.com
-* [Github URL](https://github.com/LINLIYU/python)：https://github.com/LINLIYU/python
+* [Github URL](https://github.com/LINLIYU/python_flask_web)：https://github.com/LINLIYU/python_flask_web
 
 
 * 页面内分别有2个url
