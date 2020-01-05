@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>air_forecast</title>
+</head>
+<body style="margin-top:20px">
+<div class="container">
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 style="margin-bottom:10px">{{ date }}日{{citys|length}}城空气质量预报</h3>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <td>城市</td>
+                            <td>aqi指数</td>
+                            <td>首要污染物</td>
+                            <td>空气质量</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for city in citys %}
+                            <tr>
+                                <td><a class="aaa" style="color:#1ABDE6">{{ city.name }}</a></td>
+                                <td>{{ city.aqi }}</td>
+                                <td>{{ city.main }}</td>
+                                <td>{{ city.quality }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script>
+    // post请求
+    $('a[class=aaa]').click(function () {
+        $.ajax({
+            url: "http://127.0.0.1:8051/process",
+            type: 'post',
+            data: {
+                city: $(this).text()
+            },
+            success: function (data) {
+                console.log(data);
+                window.location.href='http://127.0.0.1:8051/dash'
+            }
+        })
+    })
+
+</script>
+</body>
+</html>
